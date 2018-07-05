@@ -69,12 +69,14 @@ def create_new_password(message):
   
 if __name__=='__main__':
 
+  
   parser = optparse.OptionParser(usage=" ")
-  parser.add_option("-p", "--passwd", dest="changepasswd", type='bool', 
-                    help=("This option is used to change the password [default: %default]"))
-                    
-  parser.set_defaults(changepasswd=False)
+  parser.add_option("-n", "--newrelic", dest="nr_passwd", action="store_true", default=False, help=("To change NewRelic stored password [default: %default]"))
+  parser.add_option("-o", "--outlook", dest="outlook_passwd", action="store_true", default=False, help=("To change outlook password [default: %default]"))
   opts, args = parser.parse_args()
+
+  print('{0:-^60}\n{1:^60}\n{0:-^60}').format('','STARTING PROGRAM')
+  parser.print_help()
   
   if os.name != 'nt':
     print("We apologize, this program was designed to run only on Windows machines. Exiting ...")
@@ -83,7 +85,7 @@ if __name__=='__main__':
   file = LOCATION + FILENAME
   if not os.path.isfile(file): 
     create_new_password("It looks like you have never set up your account\n")
-  elif (opts.changepasswd==True):
+  elif (opts.nr_passwd==True):
     create_new_password("You chose the create_new_password option!\n")
       
   
