@@ -67,6 +67,22 @@ class FileHandler(object):
   def password(self, password):
     self.__password = str(password)
   
+  @property
+  def block_size(self):
+    return self.__block_size
+  
+  @block_size.setter
+  def block_size(self, block_size):
+    self.__block_size = str(block_size)
+    
+  @property
+  def key(self):
+    return self.__key
+  
+  @key.setter
+  def key(self, key):
+    self.__key = str(key)
+  
   def write(self):
     """
     Writes data as bytes in the provided location and returns -1 if an error is found.
