@@ -5,7 +5,7 @@ import win32com.client as win32
 DEFAULT_EMAIL = 'santosc.aj@hotmail.com'
 
 class Outlook(object):
-  def __init__(self, subject="", body = '<br />', To=DEFAULT_EMAIL, cc=DEFAULT_EMAIL , signature='<br />'):
+  def __init__(self, subject="", body = '<br />', to=DEFAULT_EMAIL, cc=DEFAULT_EMAIL , signature='<br />'):
     self.__outlook      = win32.Dispatch('outlook.application')
     self.__mail         = self.__outlook.CreateItem(0)
     
@@ -14,7 +14,7 @@ class Outlook(object):
 
     self.__body         = '<br />'
     self.__signature    = signature
-    self.__recipients   = To
+    self.__recipients   = to
     self.__carbon_copy  = cc
     self.__mail.Subject = subject
     

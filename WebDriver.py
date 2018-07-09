@@ -16,7 +16,7 @@ class WebDriver():
     """
 
     self.__browser = webdriver.Firefox()
-    self.__browser.execute_script("document.body.style.zoom='{} %'".format(zoom))
+    #self.__browser.execute_script("document.body.style.zoom='{} %'".format(zoom))
     self.__browser.get(login_url)
     if login_required:
       login_email     = self.__browser.find_element_by_id(username_id).send_keys(username)
@@ -25,6 +25,7 @@ class WebDriver():
     
   
   def printWebsite(self, link="https://www.google.com.do/", file_save_path="out.png"):
+    self.__browser.get(link)
     self.__browser.get_screenshot_as_file(file_save_path)
 
   def close(self):

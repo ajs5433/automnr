@@ -1,7 +1,5 @@
 #!/usr/bin/python
-"""
-# -*- coding: ascii -*-
-"""
+
 import base64
 import hashlib
 from Crypto import Random
@@ -90,7 +88,7 @@ class FileHandler(object):
     if not self.__filename and not self.__location:
       return -1
     try:
-      full_path         = self.__location+self.__filename
+      full_path         = self.__location+'\\'+self.__filename
       
       usr_pass   = "{}{}{}".format(self.__username,self.__codec,self.__password)
       data = self.__crypto.encrypt(usr_pass)
@@ -102,11 +100,13 @@ class FileHandler(object):
       print(e)
       return -1
   
+  save = write
+  
   def load(self):
     """
     Loads the file and returns -1 if there is an error such as no file found
     """
-    full_path = self.__location + self.__filename
+    full_path = self.__location +'\\'+self.__filename
     data = -1
     
     try:
@@ -116,7 +116,8 @@ class FileHandler(object):
         
     except Exception as e:
       print(e)
-    
+    print(data)
+    print(str(data).split(self.__codec))
     return str(data).split(self.__codec)
     #return str(data)
     

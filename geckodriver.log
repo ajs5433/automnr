@@ -1,28 +1,49 @@
-1530806578353	geckodriver	INFO	geckodriver 0.21.0
-1530806578437	geckodriver	INFO	Listening on 127.0.0.1:62827
-1530806581533	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "D:\\Users\\BertoTech\\TEMP\\rust_mozprofile.SmBgIjEz0KgF"
+1531154769759	geckodriver	INFO	geckodriver 0.21.0
+1531154769790	geckodriver	INFO	Listening on 127.0.0.1:65076
+1531154772788	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "D:\\Users\\BertoTech\\TEMP\\rust_mozprofile.SPXCdChHzSQu"
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
-console.error: "Could not write session state file " (new Error("_initWorker called too early! Please read the session file from disk first.", "resource:///modules/sessionstore/SessionFile.jsm", 337)) "_initWorker/<@resource:///modules/sessionstore/SessionFile.jsm:337:15\n_initWorker@resource:///modules/sessionstore/SessionFile.jsm:330:12\n_postToWorker@resource:///modules/sessionstore/SessionFile.jsm:354:11\nwrite@resource:///modules/sessionstore/SessionFile.jsm:394:19\nwrite@resource:///modules/sessionstore/SessionFile.jsm:66:12\n_writeState@resource:///modules/sessionstore/SessionSaver.jsm:357:12\n_saveState@resource:///modules/sessionstore/SessionSaver.jsm:295:12\n_saveStateAsync@resource:///modules/sessionstore/SessionSaver.jsm:341:5\nsaveStateAsyncWhenIdle@resource:///modules/sessionstore/SessionSaver.jsm:192:9\n"
-1530806609462	Marionette	INFO	Listening on port 62844
-1530806610033	Marionette	WARN	TLS certificate errors will be ignored for this session
+1531154782738	Marionette	INFO	Listening on port 65084
+1531154783190	Marionette	WARN	TLS certificate errors will be ignored for this session
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
-[Parent 8364, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 13536, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
-[Parent 8364, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 13128, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 131[Parent 8364, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 13132, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 
+[Parent 9592, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1476, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1531154804863	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Parent 9592, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9184, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9184,*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
-1530806797311	geckodriver	INFO	geckodriver 0.21.0
-1530806797339	geckodriver	INFO	Listening on 127.0.0.1:63212
-1530806800139	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "D:\\Users\\BertoTech\\TEMP\\rust_mozprofile.26rFQzEUyE0m"
-Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
+!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x48000E,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x48000E,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+[Parent 13192, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7724, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 772*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
 Unable to read VR Path Registry from C:\Users\BertoTech\AppData\Local\openvr\openvrpaths.vrpath
