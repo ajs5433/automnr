@@ -4,9 +4,11 @@ from selenium import webdriver                                    # basic driver
 from selenium.webdriver.common.by import By                       # To make website wait
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+import time
 
 class WebDriver():
-  def __init__(self, login_url, username="", password="", username_id="login_email", password_id="login_password", login_required=True):
+  def __init__(self, login_url, username="", password="", username_id="login_email", password_id="login_password",login_required=True):
     """
     Initializes the web browser variables
     username    - username to be intered
@@ -18,14 +20,44 @@ class WebDriver():
     self.__browser = webdriver.Firefox()
     #self.__browser.execute_script("document.body.style.zoom='{} %'".format(zoom))
     self.__browser.get(login_url)
+    
     if login_required:
       login_email     = self.__browser.find_element_by_id(username_id).send_keys(username)
       login_password  = self.__browser.find_element_by_id(password_id).send_keys(password)
       self.__browser.find_element_by_name('commit').click()
-    
   
-  def printWebsite(self, link="https://www.google.com.do/", file_save_path="out.png"):
+  def click24hrs(self,link,xpath="", element_id="", delay=10):
+    """    Method is specific for the NewRelic website, still not customized
+    """
     self.__browser.get(link)
+    self.__browser.find_element_by_xpath("//li[@id='time_window_nav']").click()
+    time_nav = self.__browser.find_element_by_xpath("//li[@id='time_window_nav']").find_element_by_xpath("//a[@href='/set_time_window?tw%5Bdur%5D=last_24_hours']").click()
+    
+    try:
+      grapth1   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.0.0.0.$arvF.0']")))
+      grapth2   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.1.0.0.$arvF.0']")))
+      grapth3   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.2.0.0.$arvF.0']")))
+      wholepage = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//li[@data-color='#f06c53']")))
+    except TimeoutException:
+      print("INFO: page did not load completely with the set delay of {} seconds. \nLink: {}".format(delay, link))
+    
+  def runCommand(self, link,command):
+    self.__browser.get(link)  
+    command = '{}{}'.format('self.__browser.',command)
+    exec(command)
+  
+  def printWebsite(self, link="https://www.google.com.do/", file_save_path="out.png", delay = 10, element_id=None, ):
+    self.__browser.get('https://www.google.com')  
+    self.__browser.get(link)  
+    try:
+      grapth1   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.0.0.0.$arvF.0']")))
+      grapth2   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.1.0.0.$arvF.0']")))
+      grapth3   = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//span[@data-reactid='.2.0.0.$arvF.0']")))
+      wholepage = WebDriverWait(self.__browser, delay).until(EC.presence_of_element_located((By.XPATH, "//li[@data-color='#f06c53']")))
+      
+    except TimeoutException:
+      print("INFO: page did not load completely with the set delay of {} seconds. \nLink: {}".format(delay, link))
+    self.__browser.implicitly_wait(delay)
     self.__browser.get_screenshot_as_file(file_save_path)
 
   def close(self):

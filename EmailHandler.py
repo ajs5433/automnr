@@ -39,6 +39,7 @@ class Outlook(object):
       self.__body = self.__body + line_break
       
   def addAttachment(self, full_path):
+
     if full_path == None:
       return -1
     image_ID = 'ImgID{}'.format(self.__attach_index)
@@ -54,7 +55,15 @@ class Outlook(object):
     
   def addRecipient(self, recipient):
     self.__recipients += "; " + recipient
+  
+  def saveAsDraft(self):
+    self.__mail.To        = self.__recipients
+    self.__mail.Cc        = self.__carbon_copy
+    self.__mail.HTMLBody  = self.__body + self.__signature
     
+    self.__mail.Display(True)
+  
+  
   def send(self):
     self.__mail.To        = self.__recipients
     self.__mail.Cc        = self.__carbon_copy

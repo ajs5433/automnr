@@ -47,7 +47,7 @@ class FileHandler(object):
     self.__crypto     = AESCipher(key, block_size)
     self.__block_size = block_size                      # max memory block size 
     self.__key        = key                             # Unique ID to decrypt the password
-    self.__codec      = '*****'                           # separator field between username and password
+    self.__codec      = '*****'                         # separator field between username and password
     
   @property
   def username(self):
@@ -95,8 +95,10 @@ class FileHandler(object):
       
       with open(full_path, 'wb') as out_file:
         out_file.write(data)
-        
+      
     except Exception as e:
+      print('ERROR writing the file')
+      print('Make sure your encryption key and block_size have not changed since you saved the password!')
       print(e)
       return -1
   
@@ -113,11 +115,10 @@ class FileHandler(object):
       with open(full_path, 'rb') as in_file:
         encrypted_data = in_file.read()
         data = self.__crypto.decrypt(encrypted_data)
-        
+      
     except Exception as e:
+      print('error loading the file')
       print(e)
-    print(data)
-    print(str(data).split(self.__codec))
     return str(data).split(self.__codec)
     #return str(data)
     
